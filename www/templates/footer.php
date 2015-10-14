@@ -1,4 +1,4 @@
-﻿	</div>
+	</div>
 	<div class="popup block-none">
 		<div class="feedback-form">
 			<div class="head">

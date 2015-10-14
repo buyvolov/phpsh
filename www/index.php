@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once(__DIR__ . '\lib\prolog.php');
 require_once(__DIR__ . '\templates\header.php');?>
 
@@ -6,7 +6,7 @@ require_once(__DIR__ . '\templates\header.php');?>
 	<div class="clear"></div>
 	<div class="main-content">
 		<div class="left-block">
-			<img src="/img/img.png" class="main_image"/>
+			<img src="/img/image.jpg" class="main_image"/>
 		</div>
 		<div class="right-block">
 			<p>Элемент <!DOCTYPE> предназначен для указания типа текущего документа — DTD (document type definition, описание типа документа). Это необходимо, чтобы браузер понимал, как следует интерпретировать текущую веб-страницу, поскольку HTML существует в нескольких версиях, кроме того, имеется XHTML (EXtensible HyperText Markup Language, расширенный язык разметки гипертекста), похожий на HTML, но различающийся с ним по синтаксису. Чтобы браузер «не путался» и понимал, согласно какому стандарту отображать веб-страницу и необходимо в первой строке кода задавать <!DOCTYPE>.</p>
