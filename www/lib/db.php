@@ -1,6 +1,6 @@
 <?php
 
-$mysqlHost 		= 'localhost:3366';
+$mysqlHost 		= 'localhost';
 $mysqlUser 		= 'root';
 $mysqlPassword 	= '';
 $dataBase 		= 'mydb';
