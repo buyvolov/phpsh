@@ -18,9 +18,9 @@ class Helpers {
 	}
 
 	public static function render($template, $vars){
-	
-		if(isset($vars)){
-            foreach ($vars as $key=>$value) {
+		
+		if(isset($args)){
+            foreach ($args as $key=>$value) {
                 ${$key} = $value;
             }
         }
@@ -30,6 +30,6 @@ class Helpers {
     		$content = ob_get_contents();
     	ob_end_clean();
 
-    	echo $content;
+    	return $content;
 	}
 }

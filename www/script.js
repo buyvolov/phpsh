@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	var sSiteUrl = 'http://phpsh/';
+	var sSiteUrl = 'http://localhost:8080/';
 
 	function sendData(){
 		
