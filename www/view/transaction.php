@@ -3,7 +3,7 @@
 		$result = mysql_fetch_assoc(mysql_query($query));
 
 
-		Helpers::dd();
+	//	Helpers::dd();
 		
 ?>
 
@@ -33,11 +33,11 @@ echo "<tr>
 				</td>
 
 				<td>
-					От кого
+					Кому
 				</td>
 
 				<td>
-					Кому
+					От кого
 				</td>
 			 </tr>";
 
