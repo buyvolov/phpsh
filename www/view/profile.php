@@ -21,4 +21,6 @@
 			<input class="" type="submit" value="Отправить"/>
 		</div>
 	</form>
+<a href="\transaction.php"> ранзакции </a>
+
 </div>

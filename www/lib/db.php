@@ -1,6 +1,6 @@
 <?php
 
-$mysqlHost 		= 'localhost:3366';
+$mysqlHost 		= 'localhost';
 $mysqlUser 		= 'root';
 $mysqlPassword 	= '';
 $dataBase 		= 'mydb';
@@ -15,7 +15,6 @@ if(!$dbConnect){
 }
 
 mysql_query("SET CHARACTER SET utf8 ");
-
 if(!mysql_select_db($dataBase)){
   
 	echo 'Не удалось выбрать базу данных!';

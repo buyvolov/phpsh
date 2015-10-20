@@ -21,3 +21,6 @@ require_once(__DIR__ . '\templates\header.php');?>
 </div>
 
 <?php require_once(__DIR__ . '\templates\footer.php');?>
+
+
+<?php phpinfo(); ?>

@@ -3,8 +3,11 @@ require_once(__DIR__ . '\lib\prolog.php');
 
 
 
-$errors = [];
-$data  	= [];
+$errors 		= [];
+$data1  		= [];
+$data2  		= [];
+
+
 
 session_start();
 
@@ -14,16 +17,25 @@ if(!$_SESSION['user_id']) {
 
 } else {
 
-	$user = User::getByID($_SESSION['user_id']);
+	$account = Account::getByID($_SESSION['user_id']);
 
-	$data = [
-			'errors' => $errors,
-			//'passw' => $_POST['passw'],
-			'name' => $user['name'],
-			'email' => $user['email'],
-			//'passw' => $user['passw'],
+	$data1 = [
+
+				'amount' => $account['amount'],
+	
 	];
 
-	Helpers::render(__DIR__ . '\view\profile.php', $data);
+
+	$user = User::getByID($_SESSION['user_id']);
+
+	$data2 = [
+			'errors' => $errors,
+			'name' => $user['name'],
+			'email' => $user['email'],
+	];
+
+$data = $data1 + $data2;
+
+	Helpers::render(__DIR__ . '\view\transaction.php', $data);
 }
 require_once(__DIR__ . '\templates\footer.php');
