@@ -36,6 +36,10 @@ if(!$_SESSION['user_id']) {
 
 $data = $data1 + $data2;
 
+
+
+
+
 	Helpers::render(__DIR__ . '\view\transaction.php', $data);
 }
 require_once(__DIR__ . '\templates\footer.php');

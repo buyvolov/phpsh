@@ -21,18 +21,23 @@ class Transaction {
 	}
 
 	/**
-	 * Get transaction field by ID
+	 * Get transaction field by account_ID
 	 *
 	 * @param $email string
 	 * @return array
 	 */
-	public static function getByID($id){
+	public static function getByAccount_ID($id){
 
 		if(!$id) return false;
 
-		$query = "SELECT * FROM `transaction` WHERE `id`=" . "'" . $id . "';";
-		$result = mysql_query($query);
+		$query1 = "SELECT * FROM `transaction` WHERE `incoming_account_id`=" . "'" . $id . "';";
+		$result1 = mysql_query($query1);
+
+		$query2 = "SELECT * FROM `transaction` WHERE `outcoming_account_id`=" . "'" . $id . "';";
+		$result2 = mysql_query($query2);
 		
+		$result = $result1 + $result2;
+
 		return mysql_fetch_assoc($result);
 	}
 
