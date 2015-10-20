@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema bank
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema bank
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `bank` DEFAULT CHARACTER SET utf8 ;
+USE `bank` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `bank`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+CREATE TABLE IF NOT EXISTS `bank`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `name` VARCHAR(45) NOT NULL COMMENT '',
   `email` VARCHAR(45) NOT NULL COMMENT '',
@@ -30,9 +30,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`currency`
+-- Table `bank`.`currency`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`currency` (
+CREATE TABLE IF NOT EXISTS `bank`.`currency` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `name` VARCHAR(45) NULL DEFAULT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '')
@@ -40,9 +40,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`account`
+-- Table `bank`.`account`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`account` (
+CREATE TABLE IF NOT EXISTS `bank`.`account` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `amount` FLOAT NULL DEFAULT NULL COMMENT '',
   `user_id` INT NOT NULL COMMENT '',
@@ -52,21 +52,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`account` (
   INDEX `fk_account_currency1_idx` (`currency_id` ASC)  COMMENT '',
   CONSTRAINT `fk_account_user`
     FOREIGN KEY (`user_id`)
-    REFERENCES `mydb`.`user` (`id`)
+    REFERENCES `bank`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_account_currency1`
     FOREIGN KEY (`currency_id`)
-    REFERENCES `mydb`.`currency` (`id`)
+    REFERENCES `bank`.`currency` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`transaction`
+-- Table `bank`.`transaction`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`transaction` (
+CREATE TABLE IF NOT EXISTS `bank`.`transaction` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `price` FLOAT NULL DEFAULT NULL COMMENT '',
   `incoming_user_id` INT NOT NULL COMMENT '',
@@ -76,12 +76,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`transaction` (
   INDEX `fk_transaction_user2_idx` (`outgoing_user_id` ASC)  COMMENT '',
   CONSTRAINT `fk_transaction_user1`
     FOREIGN KEY (`incoming_user_id`)
-    REFERENCES `mydb`.`user` (`id`)
+    REFERENCES `bank`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_transaction_user2`
     FOREIGN KEY (`outgoing_user_id`)
-    REFERENCES `mydb`.`user` (`id`)
+    REFERENCES `bank`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
