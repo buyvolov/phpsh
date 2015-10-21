@@ -1,6 +1,6 @@
-﻿$(document).ready(function() {
+$(document).ready(function() {
 	
-	var sSiteUrl = 'http://phponline/';
+	var sSiteUrl = 'http://localhost:8080/';
 
 	function sendData(){
 		

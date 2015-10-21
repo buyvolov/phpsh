@@ -51,6 +51,6 @@ $data = [
 		'passw' => $sPassw,
 ];
 
-Helpers::render(__DIR__ . '\view\auth-form.php', $data);
+Helpers::render(__DIR__ . '\view\reg-form.php', $data);
 
 require_once(__DIR__ . '\templates\footer.php');
