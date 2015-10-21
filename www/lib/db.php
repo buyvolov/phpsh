@@ -3,7 +3,7 @@
 $mysqlHost 		= 'localhost';
 $mysqlUser 		= 'root';
 $mysqlPassword 	= '';
-$dataBase 		= 'mydb';
+$dataBase 		= 'bank';
 
 $dbConnect = mysql_connect($mysqlHost, $mysqlUser, $mysqlPassword);
 

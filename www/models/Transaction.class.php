@@ -30,10 +30,10 @@ class Transaction {
 
 		if(!$id) return false;
 
-		$query1 = "SELECT * FROM `transaction` WHERE `incoming_account_id`=" . "'" . $id . "';";
+		$query1 = "SELECT * FROM `transaction` WHERE `incoming_user_id`=" . "'" . $id . "';";
 		$result1 = mysql_query($query1);
 
-		$query2 = "SELECT * FROM `transaction` WHERE `outcoming_account_id`=" . "'" . $id . "';";
+		$query2 = "SELECT * FROM `transaction` WHERE `outcoming_user_id`=" . "'" . $id . "';";
 		$result2 = mysql_query($query2);
 		
 		$result = $result1 + $result2;

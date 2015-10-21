@@ -1,5 +1,8 @@
 <?php
-		$query = "SELECT * FROM `transaction` WHERE `incoming_account_id`= '1' ";
+
+$id = $_SESSION['user_id'];
+
+		$query = "SELECT * FROM `transaction` WHERE `incoming_user_id`= $id ";
 		$result = mysql_fetch_assoc(mysql_query($query));
 
 
@@ -10,16 +13,16 @@
 
 
 
-
+<div class="fields">
 
 
 <p>Здравствуйте <?=($name)?$name:''?> на вашем счету: <?=($amount)?$amount:''?></p>
-<p>Список Ваших транзекций:</p>
+<p>Список Ваших транзакций:</p>
 
 
 <?php
-$queryIncoming = mysql_query("SELECT * FROM `transaction` WHERE `incoming_account_id` = 1 ORDER by id ");
-$queryoutgoing = mysql_query("SELECT * FROM `transaction` WHERE `outgoing_account_id` = 1 ORDER by id ");
+$queryIncoming = mysql_query("SELECT * FROM `transaction` WHERE `incoming_user_id` = $id ORDER by id ");
+$queryoutgoing = mysql_query("SELECT * FROM `transaction` WHERE `outgoing_user_id` = $id ORDER by id ");
 
 
 echo"<table border = 1>";
@@ -55,11 +58,11 @@ echo "<tr>
 				</td>
 
 				<td>
-					".$result['incoming_account_id']."
+					".User::getByID($result['incoming_user_id'])['name']."
 				</td>
 
 				<td>
-					".$result['outgoing_account_id']."
+					".User::getByID($result['outgoing_user_id'])['name']."
 				</td>
 			 </tr>";
 	}
@@ -75,16 +78,23 @@ echo "<tr>
 				</td>
 
 				<td>
-					".$result['incoming_account_id']."
+					".User::getByID($result['incoming_user_id'])['name']."
 				</td>
 
 				<td>
-					".$result['outgoing_account_id']."
+					".User::getByID($result['outgoing_user_id'])['name']."
 				</td>
 			 </tr>";
 	}
 
+
+
+//Helpers::dd(User::getByID(2)['name']);
+
+
+//session_destroy();
 ?>
 
 
 </table>
+</div>
