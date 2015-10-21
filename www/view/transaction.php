@@ -17,6 +17,39 @@ $id = $_SESSION['user_id'];
 
 
 <p>Здравствуйте <?=($name)?$name:''?> на вашем счету: <?=($amount)?$amount:''?></p>
+
+
+
+
+<form action = "transfer.php" method="post">
+		<input type="hidden" name="auth" value="Y">
+		<div class="fieldset">
+			<div class="field-caption">Сумма</div>
+			<span class="notice "></span>
+			<input class="field" type="text" value="" id="summ" name="summ"/>
+		</div>
+		<div class="fieldset">
+			<div class="field-caption">Кому</div>
+			<span class="notice "></span>
+			   <p><select name="name" id="name">
+				    <option disabled>Выберите пользователя</option>
+				    <option value="1">Шкатов</option>
+				    <option value="2">Иванов</option>
+				    <option value="3">Петров</option>
+				    <option value="4">Сидоров</option>
+				    <option value="5">Николаев</option>
+				  </select>
+				</p>
+		</div>
+		<div class="fieldset">
+			<input class="" type="submit" value="перевести"/>
+		</div>
+</form>
+
+
+
+
+
 <p>Список Ваших транзакций:</p>
 
 
