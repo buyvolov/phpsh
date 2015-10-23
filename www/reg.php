@@ -55,8 +55,8 @@ if(isset($_POST['auth'])){
 	}
 	if ($passw !== $confirm) {
 
-		$errors['passw'] = 'Парооль и подтверждение должны совпадать!';
-		$errors['confirm'] = 'Парооль и подтверждение должны совпадать!';
+		$errors['passw'] = 'Пароли не совпадают!';
+		$errors['confirm'] = 'Пароли не совпадают!';
 		$bValidate = false;
 	}
     if($bValidate){
