@@ -39,6 +39,7 @@ if(isset($_POST['profile'])){
 		$userData = [
 					'name' => $name,
 					'email' => $email,
+					'passw' => $passw,
 		];
 		
 		User::update($aUser['id'], $userData);
