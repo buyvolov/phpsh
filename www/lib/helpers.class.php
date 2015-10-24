@@ -33,6 +33,7 @@ class Helpers {
                 ${$key} = $value;
             }
         }
+		//self::dd($accounts);
 
 		ob_start();
 			include($template);

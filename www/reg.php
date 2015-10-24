@@ -25,8 +25,9 @@ if(isset($_POST['auth'])){
 		$errors['passw']  = 'Не заполнено!';
 		$bValidate = false;
 	}
-	
+	$oUser = new User();
 	$user = User::getByEmail($sEmail);
+	Helpers::dd($user);
 
 	if (!$user) {
 		

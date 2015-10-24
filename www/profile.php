@@ -7,7 +7,8 @@ $bValidate = true;
 
 if(!Helpers::isAuth()) return false;
 
-$aUser = User::getCurrentUser();
+$oUser = AbstractModel::getModel('User');
+$aUser = $oUser::getCurrentUser();
 
 if(isset($_POST['profile'])){
 	
@@ -26,7 +27,7 @@ if(isset($_POST['profile'])){
 		$bValidate = false;
 	}
 
-	$aSearchUser = User::getByEmail($email);
+	$aSearchUser = $oUser::getByEmail($email);
 
 	if ($aSearchUser && $aSearchUser['id'] != $aUser['id']) {
 
@@ -41,7 +42,7 @@ if(isset($_POST['profile'])){
 					'email' => $email,
 		];
 		
-		User::update($aUser['id'], $userData);
+		$oUser->update('user', $aUser['id'], $userData);
 	}	
 
 	$data['name'] 	= $name;

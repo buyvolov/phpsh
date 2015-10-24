@@ -1,5 +1,4 @@
 <?php
-//require_once(__DIR__ . '\lib\prolog.php');
 
 /**
  * Model 'User'
@@ -7,7 +6,12 @@
  * @author Dmitriy Shkatov
  * @package User
  */
-class User {
+class User extends AbstractModel {
+
+	public function __construct($modelName){
+
+		parent::__construct($modelName);
+	}
 
 	public static function getAll(){
 
@@ -26,7 +30,7 @@ class User {
 	 * @param $email string
 	 * @return array
 	 */
-	public static function getByID($id){
+	public function getByID($id){
 
 		if(!$id) return false;
 
@@ -42,7 +46,7 @@ class User {
 	 * @param $email string
 	 * @return array
 	 */
-	public static function getByEmail($email){
+	public function getByEmail($email){
 
 		if(!$email) return false;
 
@@ -53,36 +57,11 @@ class User {
 	}
 
 	/**
-	 * Get user field by email
-	 *
-	 * @param $email string
-	 * @return array
-	 */
-	public static function update($id, $fields){
-
-		if(!$id) return false;
-		
-		$sFields = '';
-		foreach ($fields as $key => $value) {
-			
-			$sFields .= $key . "='" . $value . "', ";
-		}
-		
-		$iLen 	 = mb_strlen($sFields);
-		$sFields = mb_substr($sFields, 0, $iLen - 2);
-
-		$query = "UPDATE `user` SET " . $sFields . "WHERE `id`=" . "'" . $id . "';";
-		$result = mysql_query($query);
-
-		return $result;
-	}
-
-	/**
 	 * Get current auth user by session
 	 *
 	 * @return array
 	 */
-	public static function getCurrentUser(){
+	public function getCurrentUser(){
 		
 		$userID = $_SESSION['user_id'];
 		if($userID) {
@@ -92,6 +71,3 @@ class User {
 		return true;
 	}
 }
-
-
-
